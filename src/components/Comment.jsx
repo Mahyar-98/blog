@@ -1,7 +1,10 @@
-const Comment = ({ comment }) => {
-  console.log(comment.website);
+import { useState } from "react";
+import CommentForm from "./CommentForm";
+
+const Comment = ({ postTitle, comment }) => {
+  const [isReplying, setIsReplying] = useState(false);
   return (
-    <li key={comment._id}>
+    <li key={comment._id} className={comment.parentComment ? "childComment" : ""} >
       <strong>
         {comment.website ? (
           <a href={comment.website}>{comment.name}</a>
@@ -11,7 +14,14 @@ const Comment = ({ comment }) => {
       </strong>
       <small>commented on {comment.createdAt}</small>
       <p>{comment.body}</p>
-      <button>Reply</button>
+      {isReplying ? (
+        <>
+          <CommentForm postTitle={postTitle} commentId={comment._id} />
+          <button onClick={() => setIsReplying(false)}>Cancel</button>
+        </>
+      ) : (
+        <button onClick={() => setIsReplying(true)}>Reply</button>
+      )}
     </li>
   );
 };

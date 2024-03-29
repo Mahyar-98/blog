@@ -2,13 +2,17 @@ import { useEffect, useState } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
 import PostDetails from "./PostDetails";
 import Comment from "./Comment";
+import CommentForm from "./CommentForm";
 
 const Post = () => {
   const params = useParams();
   const { posts } = useOutletContext();
+  const [comments, setComments] = useState([]);
+
+  // find the post among all the posts that matches the slug
   const post = posts.find((post) => post.title_url === params.postTitle);
 
-  const [comments, setComments] = useState([]);
+  // Fetch all the comments for the post being rendered
   useEffect(() => {
     fetch("http://localhost:3000/posts/" + params.postTitle + "/comments")
       .then((res) => res.json())
@@ -16,9 +20,52 @@ const Post = () => {
       .catch((err) => console.error(err));
   }, [params.postTitle]);
 
-  const postComments = comments.map((comment) => {
-    return <Comment key={comment._id} comment={comment} />;
-  });
+  const buildCommentTree = (comments) => {
+    const commentMap = {};
+    const rootComments = [];
+
+    // Map each comment by its ID for quick access
+    comments.forEach((comment) => {
+      commentMap[comment._id] = comment;
+    });
+
+    // Add child comments to their parent comments
+    comments.forEach((comment) => {
+      if (comment.parentComment) {
+        const parentComment = commentMap[comment.parentComment];
+        if (parentComment) {
+          if (!parentComment.children) {
+            parentComment.children = [];
+          }
+          parentComment.children.push(comment);
+        } else {
+          // If parent comment not found, treat as root comment
+          rootComments.push(comment);
+        }
+      } else {
+        // If no parent comment, treat as root comment
+        rootComments.push(comment);
+      }
+    });
+
+    return rootComments;
+  };
+
+  // Render a comment and its children recursively
+  const renderCommentWithChildren = (comment) => {
+    return (
+      <div key={comment._id}>
+        <Comment postTitle={params.postTitle} comment={comment} />
+        {comment.children &&
+          comment.children.map((child) => renderCommentWithChildren(child))}
+      </div>
+    );
+  };
+
+  // Create an array of Comment components to show under the post
+  const postComments = buildCommentTree(comments).map((comment) =>
+    renderCommentWithChildren(comment),
+  );
 
   return (
     <>
@@ -27,6 +74,8 @@ const Post = () => {
           <h1>{post.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
           <PostDetails post={post} />
+          <h2>Add a comment: </h2>
+          <CommentForm postTitle={params.postTitle} />
           <h2>Comments</h2>
           {postComments}
         </>
