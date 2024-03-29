@@ -1,22 +1,8 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { DateTime } from "luxon";
 
 const Blog = () => {
-  const [posts, setPosts] = useState([]);
-  const [tags, setTags] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3000/posts/")
-      .then((res) => res.json())
-      .then((data) => setPosts(data))
-      .catch((err) => console.error(err));
-  }, []);
-  useEffect(() => {
-    fetch("http://localhost:3000/tags/")
-      .then((res) => res.json())
-      .then((data) => setTags(data))
-      .catch((err) => console.error(err));
-  }, []);
+  const { posts, tags } = useOutletContext();
   const blogPosts = posts.map((post) => {
     return (
       <li key={post._id}>
