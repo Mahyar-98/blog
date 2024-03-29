@@ -9,7 +9,7 @@ const Post = () => {
   const { posts } = useOutletContext();
   const [comments, setComments] = useState([]);
 
-  // find the post among all the posts that matches the slug
+  // Find the post among all the posts that matches the slug
   const post = posts.find((post) => post.title_url === params.postTitle);
 
   // Fetch all the comments for the post being rendered
@@ -28,7 +28,6 @@ const Post = () => {
     comments.forEach((comment) => {
       commentMap[comment._id] = comment;
     });
-
     // Add child comments to their parent comments
     comments.forEach((comment) => {
       if (comment.parentComment) {
@@ -47,24 +46,33 @@ const Post = () => {
         rootComments.push(comment);
       }
     });
-
     return rootComments;
   };
 
   // Render a comment and its children recursively
-  const renderCommentWithChildren = (comment) => {
+  const renderCommentWithChildren = (comment, renderedComments) => {
+    // Check if the comment has already been rendered
+    if (renderedComments.has(comment._id)) {
+      return null; // Skip rendering if already rendered
+    }
+
+    // Add the comment to the set of rendered comments
+    renderedComments.add(comment._id);
+
     return (
       <div key={comment._id}>
         <Comment postTitle={params.postTitle} comment={comment} />
         {comment.children &&
-          comment.children.map((child) => renderCommentWithChildren(child))}
+          comment.children.map((child) =>
+            renderCommentWithChildren(child, renderedComments),
+          )}
       </div>
     );
   };
 
   // Create an array of Comment components to show under the post
   const postComments = buildCommentTree(comments).map((comment) =>
-    renderCommentWithChildren(comment),
+    renderCommentWithChildren(comment, new Set()),
   );
 
   return (

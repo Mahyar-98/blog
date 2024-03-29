@@ -63,13 +63,13 @@ const CommentForm = ({ postTitle, commentId = "" }) => {
   const sanitizeUrl = (inputUrl) => {
     // Check if the URL contains a protocol
     if (inputUrl.trim().match(/^(ftp|http|https):\/\/.*/)) {
-    // URL already includes a protocol
+      // URL already includes a protocol
       return inputUrl.trim();
     } else if (inputUrl.trim().match(/^\w+\.\w+/)) {
-    // Assume HTTPS protocol if no protocol is provided
-      return "https://" + inputUrl.trim(); 
+      // Assume HTTPS protocol if no protocol is provided
+      return "https://" + inputUrl.trim();
     } else {
-    // Invalid URL format or not provided
+      // Invalid URL format or not provided
       return undefined;
     }
   };

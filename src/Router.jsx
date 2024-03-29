@@ -6,6 +6,7 @@ import Blog from "./components/Blog";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Post from "./components/Post";
+import Tag from "./components/Tag";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const Router = () => {
         {
           path: "/blog/:postTitle",
           element: <Post />,
+        },
+        {
+          path: "/blog/tags/:tagName",
+          element: <Tag />,
         },
         {
           path: "/projects",

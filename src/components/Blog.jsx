@@ -14,7 +14,7 @@ const Blog = () => {
   const postTags = tags.map((tag) => {
     return (
       <li key={tag._id}>
-        <Link to={"/blog/tags" + tag.name}>{tag.name}</Link>
+        <Link to={"/blog/tags/" + tag.name}>{tag.name}</Link>
       </li>
     );
   });

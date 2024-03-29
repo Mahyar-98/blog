@@ -4,7 +4,10 @@ import CommentForm from "./CommentForm";
 const Comment = ({ postTitle, comment }) => {
   const [isReplying, setIsReplying] = useState(false);
   return (
-    <li key={comment._id} className={comment.parentComment ? "childComment" : ""} >
+    <li
+      key={comment._id}
+      className={comment.parentComment ? "childComment" : ""}
+    >
       <strong>
         {comment.website ? (
           <a href={comment.website}>{comment.name}</a>

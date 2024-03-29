@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { DateTime } from "luxon";
 
 const PostDetails = ({ post }) => {
+  const { tags } = useOutletContext();
   const formattedDate = DateTime.fromISO(post.updatedAt).toFormat(
     "MMMM dd, yyyy",
   );
-  const postTags = post.tags.map((tag) => {
+
+  const postTags = post.tags.map((tagId) => {
+    const postTag = tags.find((tag) => tag._id === tagId);
     return (
-      <li key={tag._id}>
-        <Link to={"/blog/tags/" + tag.name}>{tag.name}</Link>
+      <li key={tagId}>
+        <Link to={"/blog/tags/" + postTag.name}>{postTag.name}</Link>
       </li>
     );
   });
