@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Blog from "./components/Blog";
 import Projects from "./components/Projects";
 import About from "./components/About";
+import Contact from "./components/Contact";
 import Post from "./components/Post";
 import Tag from "./components/Tag";
 
@@ -37,6 +38,10 @@ const Router = () => {
         {
           path: "/about",
           element: <About />,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
         },
       ],
     },

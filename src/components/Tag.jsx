@@ -8,9 +8,9 @@ const Tag = () => {
 
   // Format the createdAt dates using luxon
   const formateDate = (date) => {
-    return DateTime.fromISO(date).toFormat("MMMM dd")
-  }
-  
+    return DateTime.fromISO(date).toFormat("MMMM dd");
+  };
+
   // Find the posts that have the tag
   const tagPosts = posts.filter((post) => post.tags.includes(searchedTag._id));
   const tagPostsList = tagPosts.map((post) => {
