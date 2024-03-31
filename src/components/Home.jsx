@@ -1,3 +1,4 @@
+import "../styles/home.css";
 import Project from "./Project";
 import projectList from "../data/projectList";
 import { Link, useOutletContext } from "react-router-dom";
@@ -20,15 +21,18 @@ const Home = () => {
     <>
       <div className="home__hero">
         <div className="container">
-          <p>Hey! My name is</p>
-          <h1>Mahyar Erfanian</h1>
-          <p>
-            I&apos;m an engineer turned passionate self-taught web developer.
-            Skilled in both frontend and backend technologies, I love solving
-            problems and bringing ideas to life. Let&apos;s collaborate on
-            building innovative web solutions!
-          </p>
-          <img src="./hero.png" alt="" className="hero_img" />
+          <div className="intro">
+            <p>Hey! My name is</p>
+            <h1>Mahyar Erfanian</h1>
+            <p className="bio">
+              I&apos;m a full-stack web developer based in Montreal
+            </p>
+            <button>
+              <Link to="contact">GET IN TOUCH</Link>
+            </button>
+          </div>
+          <img src="./hero-small.png" alt="" className="hero-img-small" />
+          <img src="./hero-large.png" alt="" className="hero-img-large" />
         </div>
       </div>
       <div className="home__blog">

@@ -1,5 +1,4 @@
 import "../styles/layout.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 
