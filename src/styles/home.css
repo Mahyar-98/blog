@@ -1,13 +1,12 @@
 .home__hero {
-  --hero-bg-color: #ffc60da4;
   background-color: var(--hero-bg-color);
-  min-height: 100vh;
+  min-height: 100%;
+  overflow: hidden;
 }
 
 .home__hero .container {
   padding-top: 2em;
   padding-left: 1em;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,7 +21,7 @@
 }
 
 .intro h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
 }
 
 .intro p {
@@ -54,6 +53,20 @@
   display: none;
 }
 
+.home__projects {
+  background-color: var(--hero-bg-color);
+}
+
+.home__projects .container {
+  padding: 3em 0;
+}
+
+.home__projects .container > a {
+  display: block;
+  text-align: center;
+  margin-top: 3em;
+}
+
 @media (min-width: 750px) {
   .hero-img-small {
     display: none;
@@ -64,12 +77,15 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 600px;
+    width: 700px;
   }
 
   .home__hero .container {
     flex-direction: row;
     position: relative;
+    height: 100%;
+    margin-top: 3em;
+    margin-bottom: 7em;
   }
 
   .intro,

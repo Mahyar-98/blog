@@ -1,0 +1,7 @@
+.home__about {
+  margin: 3em 0;
+}
+
+.home__about h2 {
+  color: var(--secondary-font-color);
+}

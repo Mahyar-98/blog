@@ -1,0 +1,51 @@
+.project {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.project img {
+  width: 100%;
+  border: var(--main-font-color) 2px solid;
+  border-radius: 0.5em;
+}
+
+.project__btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+
+.project__btns button {
+  font-size: 0.9em;
+}
+.project__btns button:hover {
+  background-color: var(--main-font-color);
+  color: white;
+}
+
+.project__btns.large-screen {
+  display: none;
+}
+
+@media (min-width: 750px) {
+  .project {
+    flex-direction: row;
+    gap: 3em;
+  }
+
+  .project__btns.small-screen {
+    display: none;
+  }
+
+  .project__btns.large-screen {
+    display: flex;
+  }
+
+  .project__left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}

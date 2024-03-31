@@ -49,7 +49,7 @@ header .nav {
   position: fixed;
   top: 0;
   left: -300px;
-  width: 200px;
+  width: 250px;
   height: 100%;
   padding: 0 1em;
   background-color: #fff;
@@ -86,7 +86,7 @@ header .nav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 1em;
+  gap: 0.5em;
   padding-left: 0;
 }
 
@@ -98,7 +98,7 @@ header .nav {
 .side-nav a {
   display: flex;
   align-items: center;
-  gap: 2em;
+  gap: 1em;
   padding: 0.5em 0 0.5em 1em;
   border-radius: 0.6em;
 }
@@ -108,6 +108,15 @@ header .nav {
 
 .side-nav svg {
   width: 15px;
+}
+
+.side-nav p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+main {
+  flex-grow: 1;
 }
 
 footer {
@@ -135,6 +144,7 @@ footer p {
     gap: 3em;
     padding-left: 0;
     margin: 0;
+    font-size: 0.9rem;
   }
 
   header span.theme svg {

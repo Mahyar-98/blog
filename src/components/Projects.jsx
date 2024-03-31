@@ -1,3 +1,4 @@
+import "../styles/projects.css";
 import Project from "./Project";
 import projectList from "../data/projectList";
 
@@ -7,7 +8,7 @@ const Projects = () => {
   });
   return (
     <>
-      <h1>Projects</h1>
+      <h2>Projects</h2>
       {projects}
     </>
   );

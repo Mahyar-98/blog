@@ -1,36 +1,50 @@
+import "../styles/about.css";
+
 const About = () => {
   return (
     <>
-      <h1>About</h1>
+      <h2>ABOUT</h2>
       <p>
-        Hello! I&apos;m Mahyar, an engineer turned self-taught web developer on
-        a journey fueled by passion and curiosity. With a background in
-        engineering and a love for coding, I&apos;ve embarked on an exciting
-        adventure in the world of web development.
-      </p>
-      <p>
-        My journey began with a desire to bring my ideas to life, and it has
-        since evolved into a deep passion for crafting elegant digital
-        solutions. I thrive on challenges and love turning complex concepts into
-        tangible products.
+        Hello! My name is Mahyar Erfanian and my pronouns are he/they. I&apos;ve
+        taken a fascinating journey from engineering to the captivating realm of
+        coding! Originally from the land of pistachios, sour cherries, and
+        exquisite rugs, Iran, I have now settled in the vibrant city of
+        Montreal. I&apos;m fueled by a strong desire to solve problems, which
+        led me to switch gears and dive into web development after completing my
+        Masters in Engineering. Turns out, coding is where I truly thrive!
       </p>
       <p>
         With expertise in both frontend and backend development, I specialize in
         the MERN stack (MongoDB, Express.js, React.js, Node.js) and Ruby on
-        Rails. Whether it&apos;s building sleek user interfaces or architecting
+        Rails. Whether it&apos;s building sleek user interfaces or engineering
         robust server-side systems, I&apos;m always up for the task.
       </p>
       <p>
-        What excites me most about web development is the endless opportunity
-        for learning and growth. The ever-evolving tech landscape keeps me on my
-        toes, and I embrace the role of a lifelong student. Solving problems,
-        experimenting with new technologies, and staying ahead in this
-        fast-paced industry is what drives me forward.
+        When I&apos;m not immersed in coding, you&apos;ll often find me
+        exploring my passion for cooking, a practice that helps me preserve the
+        cultural heritage I&apos;ve been raised with. I also find lots of joy in
+        expressing my creativity through{" "}
+        <a
+          href="https://www.instagram.com/mahyar.erfn_art/"
+          className="underlined"
+        >
+          portrait drawing
+        </a>
+        . Staying physically active is crucial in a career where long hours of
+        sedentary work is common, so I prioritize regular workouts to maintain
+        both my mental and physical well-being. Another passion close to my
+        heart is music and I particularly enjoy delving into the lyrical depth
+        of my favorite songs. Recently, I&apos;ve also begun writing a blog
+        focused on topics related to web development, which serves as a means to
+        continuously expand my knowledge and bridge any gaps in my understanding
+        of the field.
       </p>
       <p>
-        I&apos;m passionate about creating meaningful experiences and am eager
-        to collaborate on projects that challenge the status quo and push
-        boundaries. Let&apos;s work together to turn your ideas into reality!
+        What excites me most about web development is the endless opportunity
+        for learning and growth and I embrace the role of a lifelong student.
+        I&apos;d love to create meaningful experiences and am eager to
+        collaborate on projects that challenge me. Let&apos;s work together to
+        turn your ideas into reality!
       </p>
     </>
   );

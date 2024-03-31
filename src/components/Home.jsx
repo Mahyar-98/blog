@@ -3,6 +3,7 @@ import Project from "./Project";
 import projectList from "../data/projectList";
 import { Link, useOutletContext } from "react-router-dom";
 import { DateTime } from "luxon";
+import About from "./About";
 
 const Home = () => {
   const { posts } = useOutletContext();
@@ -15,11 +16,13 @@ const Home = () => {
     );
   });
   const projects = projectList.map((project) => {
-    return <Project key={project.url} project={project} />;
+    if (project.showInHomepage) {
+      return <Project key={project.url} project={project} />;
+    }
   });
   return (
     <>
-      <div className="home__hero">
+      <section className="home__hero">
         <div className="container">
           <div className="intro">
             <p>Hey! My name is</p>
@@ -34,15 +37,25 @@ const Home = () => {
           <img src="./hero-small.png" alt="" className="hero-img-small" />
           <img src="./hero-large.png" alt="" className="hero-img-large" />
         </div>
-      </div>
-      <div className="home__blog">
+      </section>
+      <section className="home__about">
+        <div className="container">
+          <About />
+        </div>
+      </section>
+      <section className="home__projects">
+        <div className="container">
+          <h2>PROJECTS</h2>
+          {projects}
+          <Link to="projects" className="underlined">
+            View more
+          </Link>
+        </div>
+      </section>
+      <section className="home__blog">
         <h2>Latest blog posts</h2>
         {blogPosts}
-      </div>
-      <div className="home__projects">
-        <h2>Projects</h2>
-        {projects}
-      </div>
+      </section>
     </>
   );
 };
