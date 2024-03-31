@@ -18,15 +18,18 @@ const Home = () => {
   });
   return (
     <>
-      <h1>Home</h1>
-      <div className="home__bio">
-        <b>Hey! I&apos;m Mahyar!</b>
+      <div className="home__hero">
+        <div className="container">
+        <p>Hey! My name is</p>
+        <h1>Mahyar Erfanian</h1>
         <p>
           I&apos;m an engineer turned passionate self-taught web developer.
           Skilled in both frontend and backend technologies, I love solving
           problems and bringing ideas to life. Let&apos;s collaborate on
           building innovative web solutions!
         </p>
+        <img src="./hero.png" alt="" className="hero_img"/>
+        </div>
       </div>
       <div className="home__blog">
         <h2>Latest blog posts</h2>
