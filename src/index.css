@@ -95,4 +95,8 @@ li {
   .container {
     width: 75%;
   }
+
+  .container-small {
+    width: 55%;
+  }
 }

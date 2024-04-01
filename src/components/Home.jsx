@@ -7,11 +7,13 @@ import About from "./About";
 
 const Home = () => {
   const { posts } = useOutletContext();
-  const blogPosts = posts.map((post) => {
+  const blogPosts = posts.slice(0, 3).map((post) => {
+    const shortenedBody = post.body.slice(0, 200) + "...";
     return (
-      <li key={post._id}>
-        <Link to={"/blog/" + post.title_url}>{post.title}</Link>
-        <small>{DateTime.fromISO(post.createdAt).toFormat("MMMM dd")}</small>
+      <li key={post._id} className="home__post">
+                <small>{DateTime.fromISO(post.createdAt).toFormat("MMMM dd, yyyy")}</small>
+        <b><Link to={"/blog/" + post.title_url}>{post.title}</Link></b>
+        <div dangerouslySetInnerHTML={{ __html: shortenedBody }}></div>
       </li>
     );
   });
@@ -39,7 +41,7 @@ const Home = () => {
         </div>
       </section>
       <section className="home__about">
-        <div className="container">
+        <div className="container container-small">
           <About />
         </div>
       </section>
@@ -53,8 +55,13 @@ const Home = () => {
         </div>
       </section>
       <section className="home__blog">
-        <h2>Latest blog posts</h2>
-        {blogPosts}
+        <div className="container container-small">
+          <h2>Blog posts</h2>
+          {blogPosts}
+          <Link to="blog" className="underlined">
+            View more
+          </Link>
+        </div>
       </section>
     </>
   );
