@@ -11,8 +11,12 @@ const Home = () => {
     const shortenedBody = post.body.slice(0, 200) + "...";
     return (
       <li key={post._id} className="home__post">
-                <small>{DateTime.fromISO(post.createdAt).toFormat("MMMM dd, yyyy")}</small>
-        <b><Link to={"/blog/" + post.title_url}>{post.title}</Link></b>
+        <small>
+          {DateTime.fromISO(post.createdAt).toFormat("MMMM dd, yyyy")}
+        </small>
+        <b>
+          <Link to={"/blog/" + post.title_url}>{post.title}</Link>
+        </b>
         <div dangerouslySetInnerHTML={{ __html: shortenedBody }}></div>
       </li>
     );
@@ -40,10 +44,8 @@ const Home = () => {
           <img src="./hero-large.png" alt="" className="hero-img-large" />
         </div>
       </section>
-      <section className="home__about">
-        <div className="container container-small">
-          <About />
-        </div>
+      <section className="home__about" id="home__about-variant">
+        <About />
       </section>
       <section className="home__projects">
         <div className="container">

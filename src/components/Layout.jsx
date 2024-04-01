@@ -41,7 +41,9 @@ const Layout = () => {
     <div className="layout">
       <header>
         <div className="container">
-          <Link to="/"><h1>M. E.</h1></Link>
+          <Link to="/">
+            <h1>M. E.</h1>
+          </Link>
           <button
             id="nav-toggle"
             aria-label="Toggle navigation"

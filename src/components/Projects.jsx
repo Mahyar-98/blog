@@ -1,4 +1,3 @@
-import "../styles/projects.css";
 import Project from "./Project";
 import projectList from "../data/projectList";
 
@@ -8,8 +7,12 @@ const Projects = () => {
   });
   return (
     <>
-      <h2>Projects</h2>
-      {projects}
+      <div className="title">
+        <div className="container container-small">
+          <h2>PROJECTS</h2>
+        </div>
+      </div>
+      <div className="container">{projects}</div>
     </>
   );
 };

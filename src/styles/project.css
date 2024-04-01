@@ -17,14 +17,6 @@
   gap: 1em;
 }
 
-.project__btns button {
-  font-size: 0.9em;
-}
-.project__btns button:hover {
-  background-color: var(--main-font-color);
-  color: white;
-}
-
 .project__btns.large-screen {
   display: none;
 }
@@ -34,7 +26,7 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 3em;
-}
+  }
 
   .project__btns.small-screen {
     display: none;
@@ -48,5 +40,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+  }
+
+  .project img {
+    flex: 0 0 50%;
   }
 }

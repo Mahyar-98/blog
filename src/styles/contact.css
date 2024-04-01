@@ -1,0 +1,52 @@
+.contact-way b {
+  display: block;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.contact-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.contact-way form button {
+  border: var(--main-font-color) 1px solid;
+}
+
+.contact .icon-text {
+  display: flex;
+  gap: 1em;
+}
+
+.contact .icon-text p {
+  margin: 0;
+}
+
+.contact .socials {
+  display: flex;
+  gap: 1.5em;
+}
+
+.contact svg {
+  width: 30px;
+}
+
+@media (min-width: 750px) {
+  .contact-ways {
+    display: flex;
+    justify-content: space-between;
+    gap: 6em;
+  }
+
+  .message-form {
+    flex: 1;
+  }
+
+  .contact-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+}

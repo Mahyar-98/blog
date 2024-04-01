@@ -53,6 +53,19 @@
   display: none;
 }
 
+.home__about {
+  padding: 3em 0;
+}
+
+#home__about-variant .title {
+  background-color: white;
+  padding-bottom: 0;
+}
+
+#home__about-variant h2 {
+  color: var(--secondary-font-color);
+}
+
 .home__projects {
   background-color: var(--hero-bg-color);
 }
@@ -68,28 +81,27 @@
 }
 
 .home__blog {
-    margin: 3em 0;
+  margin-top: 3em;
 }
 
 .home__blog .container {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 
 .home__blog h2 {
-    color: var(--secondary-font-color);
+  color: var(--secondary-font-color);
 }
 
 .home__blog .home__post {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .home__blog .underlined {
-    margin: 0 auto;
+  margin: 0 auto;
 }
-
 
 @media (min-width: 750px) {
   .hero-img-small {
