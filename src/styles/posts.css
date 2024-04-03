@@ -1,0 +1,29 @@
+.tags ul {
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8em;
+}
+
+.tags button {
+  font-size: 0.75em;
+  border: var(--main-font-color) 1px solid;
+  transition: transform 0.3s;
+}
+
+.tags button.active {
+  background-color: var(--main-font-color);
+  color: white;
+}
+
+.tags button:hover {
+  transform: scale(1.1);
+}
+
+.posts {
+  margin-top: 3em;
+}
+
+.posts ul {
+  padding-left: 0;
+}

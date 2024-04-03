@@ -94,11 +94,6 @@
   color: var(--secondary-font-color);
 }
 
-.home__blog .home__post {
-  display: flex;
-  flex-direction: column;
-}
-
 .home__blog .underlined {
   margin: 0 auto;
 }

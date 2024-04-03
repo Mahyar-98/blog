@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import { useOutletContext, useParams } from "react-router-dom";
+import "../styles/post.css";
 import PostDetails from "./PostDetails";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
+import { useEffect, useState } from "react";
+import { useOutletContext, useParams } from "react-router-dom";
 
 const Post = () => {
   const params = useParams();
@@ -16,7 +17,7 @@ const Post = () => {
   useEffect(() => {
     fetch("http://localhost:3000/posts/" + params.postTitle + "/comments")
       .then((res) => res.json())
-      .then((data) => setComments(data))
+      .then((data) => (Array.isArray(data) ? setComments(data) : null))
       .catch((err) => console.error(err));
   }, [params.postTitle]);
 
@@ -78,15 +79,15 @@ const Post = () => {
   return (
     <>
       {post && (
-        <>
-          <h1>{post.title}</h1>
+        <div>
+          <h2>{post.title}</h2>
           <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
           <PostDetails post={post} />
-          <h2>Add a comment: </h2>
+          <b>Add a comment: </b>
           <CommentForm postTitle={params.postTitle} />
-          <h2>Comments</h2>
+          <h3>Comments</h3>
           {postComments}
-        </>
+        </div>
       )}
     </>
   );

@@ -1,23 +1,16 @@
 import "../styles/home.css";
+import About from "./About";
 import Project from "./Project";
 import projectList from "../data/projectList";
+import PostInfo from "./PostInfo";
 import { Link, useOutletContext } from "react-router-dom";
-import { DateTime } from "luxon";
-import About from "./About";
 
 const Home = () => {
   const { posts } = useOutletContext();
   const blogPosts = posts.slice(0, 3).map((post) => {
-    const shortenedBody = post.body.slice(0, 200) + "...";
     return (
-      <li key={post._id} className="home__post">
-        <small>
-          {DateTime.fromISO(post.createdAt).toFormat("MMMM dd, yyyy")}
-        </small>
-        <b>
-          <Link to={"/blog/" + post.title_url}>{post.title}</Link>
-        </b>
-        <div dangerouslySetInnerHTML={{ __html: shortenedBody }}></div>
+      <li key={post._id}>
+        <PostInfo post={post} />
       </li>
     );
   });

@@ -6,8 +6,8 @@ import Blog from "./components/Blog";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Posts from "./components/Posts";
 import Post from "./components/Post";
-import Tag from "./components/Tag";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -22,14 +22,16 @@ const Router = () => {
         {
           path: "/blog",
           element: <Blog />,
-        },
-        {
-          path: "/blog/:postTitle",
-          element: <Post />,
-        },
-        {
-          path: "/blog/tags/:tagName",
-          element: <Tag />,
+          children: [
+            {
+              path: "/blog",
+              element: <Posts />,
+            },
+            {
+              path: "/blog/:postTitle",
+              element: <Post />,
+            },
+          ],
         },
         {
           path: "/projects",
