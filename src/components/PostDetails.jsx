@@ -1,3 +1,4 @@
+import "../styles/postdetails.css";
 import { Link, useOutletContext } from "react-router-dom";
 import { DateTime } from "luxon";
 import { useMemo } from "react";
@@ -16,20 +17,30 @@ const PostDetails = ({ post }) => {
     const postTag = tags.find((tag) => tag._id === tagId);
     return (
       <li key={tagId}>
-        <Link to={`/blog?tags=${tagIdsToTagNames[tagId]}`}>{postTag.name}</Link>
+        <button>
+          <Link to={`/blog?tags=${tagIdsToTagNames[tagId]}`}>
+            {postTag.name}
+          </Link>
+        </button>
       </li>
     );
   });
   return (
     <>
-      <div>
-        <h3>Post details</h3>
-        <b>Last edited: </b>
-        <small>{formatDate(post.updatedAt)}</small>
-        <b>Created: </b>
-        <small>{formatDate(post.createdAt)}</small>
-        <b>Tags: </b>
-        <ul>{postTags}</ul>
+      <div className="post-details">
+        <h3>Post details:</h3>
+        <div className="post-tags">
+          <b>Tags: </b>
+          <ul>{postTags}</ul>
+        </div>
+        <div className="post-detail">
+          <b>Created: </b>
+          <small>{formatDate(post.createdAt)}</small>
+        </div>
+        <div className="post-detail">
+          <b>Last edited: </b>
+          <small>{formatDate(post.updatedAt)}</small>
+        </div>
       </div>
     </>
   );

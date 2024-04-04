@@ -17,6 +17,10 @@
   gap: 1em;
 }
 
+.project__btns button {
+  border: 1px solid var(--main-font-color);
+}
+
 .project__btns.large-screen {
   display: none;
 }

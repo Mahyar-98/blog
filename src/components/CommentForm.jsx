@@ -1,6 +1,7 @@
+import "../styles/commentform.css";
 import { useState } from "react";
 
-const CommentForm = ({ postTitle, commentId = "" }) => {
+const CommentForm = ({ postTitle, commentId = "", setIsReplying = null }) => {
   const [errors, setErrors] = useState({});
   const [commentFormData, setCommentFormData] = useState({
     name: "",
@@ -102,46 +103,82 @@ const CommentForm = ({ postTitle, commentId = "" }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
-      <label htmlFor="name">Name *</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        value={commentFormData.name}
-        onChange={handleInputChange}
-      />
-      {errors.name && <span className="error">{errors.name}</span>}
-      <label htmlFor="email">Email *</label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        value={commentFormData.email}
-        onChange={handleInputChange}
-      />
-      {errors.email && <span className="error">{errors.email}</span>}
-      <label htmlFor="website">Website </label>
-      <input
-        type="text"
-        name="website"
-        id="website"
-        value={commentFormData.website}
-        onChange={handleInputChange}
-      />
-      {errors.website && <span className="error">{errors.website}</span>}
-      <label htmlFor="body">Comment: </label>
-      <textarea
-        name="body"
-        id="body"
-        cols="30"
-        rows="10"
-        value={commentFormData.body}
-        onChange={handleInputChange}
-      ></textarea>
-      {errors.body && <span className="error">{errors.body}</span>}
-      <button>Post</button>
-    </form>
+    <>
+      <form
+        className={"comment-form " + (commentId ? "reply" : "")}
+        onSubmit={handleSubmit}
+        noValidate
+      >
+        <b className="form-legend">
+          {commentId ? "Add a reply:" : "Add a comment:"}
+        </b>
+        <div className="comment-inputs">
+          <div className="commenter-info">
+            <div className="comment-input">
+              <label htmlFor="name">
+                Name <small>*</small>
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={commentFormData.name}
+                onChange={handleInputChange}
+              />
+              {errors.name && <small className="error">{errors.name}</small>}
+            </div>
+            <div className="comment-input">
+              <label htmlFor="email">
+                Email <small>*</small>
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={commentFormData.email}
+                onChange={handleInputChange}
+              />
+              {errors.email && <small className="error">{errors.email}</small>}
+            </div>
+            <div className="comment-input">
+              <label htmlFor="website">Website</label>
+              <input
+                type="text"
+                name="website"
+                id="website"
+                value={commentFormData.website}
+                onChange={handleInputChange}
+              />
+              {errors.website && (
+                <small className="error">{errors.website}</small>
+              )}
+            </div>
+          </div>
+          <div className="comment-input">
+            <label htmlFor="body">
+              Comment <small>*</small>
+            </label>
+            <textarea
+              name="body"
+              id="body"
+              cols="30"
+              rows="10"
+              value={commentFormData.body}
+              onChange={handleInputChange}
+            ></textarea>
+            {errors.body && <small className="error">{errors.body}</small>}
+          </div>
+        </div>
+        <div className="comment-btns">
+          <button className="btn">Post</button>
+          {commentId ? (
+            <button className="btn" onClick={() => setIsReplying(false)}>
+              Cancel
+            </button>
+          ) : null}
+        </div>
+      </form>
+    </>
   );
 };
 

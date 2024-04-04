@@ -61,13 +61,26 @@ const Post = () => {
     renderedComments.add(comment._id);
 
     return (
-      <div key={comment._id}>
+      <li
+        className={
+          "nested-comment " +
+          (comment.children ? "parent-comment " : "") +
+          (comment.parentComment ? "child-comment" : "")
+        }
+        key={comment._id}
+      >
+        <div className="comment-line"></div>
+
         <Comment postTitle={params.postTitle} comment={comment} />
-        {comment.children &&
-          comment.children.map((child) =>
-            renderCommentWithChildren(child, renderedComments),
-          )}
-      </div>
+
+        {comment.children && (
+          <ul>
+            {comment.children.map((child) =>
+              renderCommentWithChildren(child, renderedComments),
+            )}
+          </ul>
+        )}
+      </li>
     );
   };
 
@@ -83,10 +96,15 @@ const Post = () => {
           <h2>{post.title}</h2>
           <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
           <PostDetails post={post} />
-          <b>Add a comment: </b>
           <CommentForm postTitle={params.postTitle} />
-          <h3>Comments</h3>
-          {postComments}
+          <h3 className="comments-heading">Comments</h3>
+          <div className="comments">
+            {postComments.length > 0 ? (
+              <ul className="nested-comments">{postComments}</ul>
+            ) : (
+              <p>There are no comments yet!</p>
+            )}
+          </div>
         </div>
       )}
     </>

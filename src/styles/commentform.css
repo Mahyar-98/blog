@@ -1,0 +1,52 @@
+.comment-form {
+  border-left: 2px solid #ccc;
+  margin-top: 1em;
+  padding-left: 1em;
+}
+
+.comment-form.reply {
+  margin-left: 1em;
+}
+
+.form-legend {
+  margin-left: 1em;
+}
+
+.comment-inputs {
+  margin-top: 1em;
+}
+
+.comment-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  font-size: 0.9rem;
+}
+
+.comment-btns {
+  display: flex;
+  gap: 1em;
+}
+
+.comment-form button {
+  display: block;
+  border: 1px solid var(--main-font-color);
+  flex: 1;
+}
+
+@media (min-width: 750px) {
+  .comment-inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+  }
+
+  .commenter-info {
+    flex: 1;
+  }
+
+  .comment-inputs > .comment-input {
+    flex: 1;
+  }
+}

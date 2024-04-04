@@ -1,0 +1,24 @@
+.comments-heading {
+  margin-top: 2em;
+}
+
+.comment {
+  margin-bottom: 1em;
+}
+
+.nested-comment {
+  position: relative;
+}
+
+.comment-line {
+  position: absolute;
+  left: -10px; /* the distance from the line */
+  top: 0;
+  bottom: 0;
+  width: 2px; /* width of the line */
+  background-color: #ccc; /* Line color */
+}
+
+.comments ul {
+  padding-left: 1.5em;
+}

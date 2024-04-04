@@ -6,7 +6,6 @@
 
 .home__hero .container {
   padding-top: 2em;
-  padding-left: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -71,7 +70,8 @@
 }
 
 .home__projects .container {
-  padding: 3em 0;
+  padding-top: 3em;
+  padding-bottom: 3em;
 }
 
 .home__projects .container > a {
