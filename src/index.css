@@ -8,16 +8,16 @@
   --light-header-color: #f5f5f5;
   --light-border-color: var(--light-font-color);
   --light-hover-color: rgba(0, 0, 0, 0.05);
-  --light-yellow-bg-color: #ffc60da4;
+  --light-yellow-font-color: #a9792b;
+  --light-yellow-bg-color: #ffcc66;
 
   --dark-font-color: #ffffff;
   --dark-bg-color: #111827;
   --dark-header-color: #0e1320;
   --dark-border-color: var(--dark-font-color);
   --dark-hover-color: rgba(0, 0, 0, 0.4);
-  --dark-yellow-bg-color: #977400;
-
-  --yellow-font-color: var(--dark-yellow-bg-color);
+  --dark-yellow-font-color: var(--light-yellow-bg-color);
+  --dark-yellow-bg-color: var(--light-yellow-font-color);
 
   --shadow-color: rgba(0, 0, 0, 0.1);
 
@@ -55,6 +55,7 @@ div.layout {
   --header-color: var(--light-header-color);
   --border-color: var(--light-border-color);
   --hover-color: var(--light-hover-color);
+  --yellow-font-color: var(--light-yellow-font-color);
   --yellow-bg-color: var(--light-yellow-bg-color);
 
   color: var(--font-color);
@@ -66,6 +67,7 @@ div.layout.dark {
   --header-color: var(--dark-header-color);
   --border-color: var(--dark-border-color);
   --hover-color: var(--dark-hover-color);
+  --yellow-font-color: var(--dark-yellow-font-color);
   --yellow-bg-color: var(--dark-yellow-bg-color);
 }
 
@@ -138,7 +140,7 @@ a.hover-opacity:hover {
 }
 
 svg {
-  fill: var(--font-color);
+  fill: var(--yellow-font-color);
 }
 
 li {
