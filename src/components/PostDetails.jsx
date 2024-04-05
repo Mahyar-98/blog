@@ -1,4 +1,5 @@
 import "../styles/postdetails.css";
+import PropTypes from "prop-types";
 import { Link, useOutletContext } from "react-router-dom";
 import { DateTime } from "luxon";
 import { useMemo } from "react";
@@ -44,6 +45,17 @@ const PostDetails = ({ post }) => {
       </div>
     </>
   );
+};
+
+PostDetails.propTypes = {
+  post: PropTypes.shape({
+    body: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    title_url: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string.isRequired),
+    createdAt: PropTypes.string.isRequired,
+    updatedAt: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default PostDetails;

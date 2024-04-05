@@ -1,4 +1,5 @@
 import "../styles/project.css";
+import PropTypes from "prop-types";
 
 const Project = ({ project }) => {
   return (
@@ -41,6 +42,16 @@ const Project = ({ project }) => {
       </div>
     </div>
   );
+};
+
+Project.propTypes = {
+  project: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    demo: PropTypes.string,
+    preview: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Project;

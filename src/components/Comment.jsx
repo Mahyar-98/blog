@@ -1,5 +1,6 @@
 import "../styles/comment.css";
 import CommentForm from "./CommentForm";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { DateTime } from "luxon";
 
@@ -36,6 +37,17 @@ const Comment = ({ postTitle, comment }) => {
       </div>
     </div>
   );
+};
+
+Comment.propTypes = {
+  postTitle: PropTypes.string.isRequired,
+  comment: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    website: PropTypes.string,
+    createdAt: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Comment;

@@ -1,4 +1,5 @@
 import "../styles/commentform.css";
+import PropTypes from "prop-types";
 import { useState } from "react";
 
 const CommentForm = ({ postTitle, commentId = "", setIsReplying = null }) => {
@@ -135,6 +136,7 @@ const CommentForm = ({ postTitle, commentId = "", setIsReplying = null }) => {
                 type="email"
                 name="email"
                 id="email"
+                placeholder="Your email address will not be published."
                 value={commentFormData.email}
                 onChange={handleInputChange}
               />
@@ -180,6 +182,12 @@ const CommentForm = ({ postTitle, commentId = "", setIsReplying = null }) => {
       </form>
     </>
   );
+};
+
+CommentForm.propTypes = {
+  postTitle: PropTypes.string.isRequired,
+  commentId: PropTypes.string,
+  setIsReplying: PropTypes.func,
 };
 
 export default CommentForm;
