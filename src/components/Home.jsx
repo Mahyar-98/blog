@@ -24,11 +24,11 @@ const Home = () => {
       <section className="home__hero">
         <div className="container">
           <div className="intro">
-            <p>Hey! My name is</p>
+            <b>Hey! My name is</b>
             <h1>Mahyar Erfanian</h1>
-            <p className="bio">
+            <b className="bio">
               I&apos;m a full-stack web developer based in Montreal
-            </p>
+            </b>
             <button>
               <Link to="contact">GET IN TOUCH</Link>
             </button>
@@ -40,7 +40,7 @@ const Home = () => {
       <section className="home__about" id="home__about-variant">
         <About />
       </section>
-      <section className="home__projects">
+      <section className="home__projects" id="home__projects-variant">
         <div className="container">
           <h2>PROJECTS</h2>
           {projects}

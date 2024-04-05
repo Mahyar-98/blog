@@ -7,7 +7,7 @@
 
 .project img {
   width: 100%;
-  border: var(--main-font-color) 2px solid;
+  border: var(--font-color) 2px solid;
   border-radius: 0.5em;
 }
 
@@ -15,10 +15,6 @@
   display: flex;
   justify-content: flex-end;
   gap: 1em;
-}
-
-.project__btns button {
-  border: 1px solid var(--main-font-color);
 }
 
 .project__btns.large-screen {

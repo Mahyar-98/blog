@@ -67,7 +67,7 @@ const Posts = () => {
     return (
       <li key={tag._id}>
         <button
-          className={isActive(tag._id) ? "active" : ""}
+          className={"tag btn " + (isActive(tag._id) ? " active" : "")}
           onClick={() => toggleTag(tag._id)}
         >
           {tag.name}

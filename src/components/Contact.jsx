@@ -7,6 +7,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     setContactFormData({
@@ -15,30 +16,65 @@ const Contact = () => {
     });
   };
 
+  // Validate the contactFormData
+  const validateMessage = () => {
+    let isValid = true;
+    const errors = {};
+
+    if (!contactFormData.name.trim()) {
+      errors.name = "Your name is required";
+      isValid = false;
+    }
+
+    if (!contactFormData.email.trim()) {
+      errors.email = "Your email address is required";
+      isValid = false;
+    } else if (
+      !contactFormData.email
+        .trim()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        )
+    ) {
+      errors.email = "Email address is invalid";
+      isValid = false;
+    }
+
+    if (!contactFormData.message.trim()) {
+      errors.message = "Message cannot be empty";
+      isValid = false;
+    }
+
+    setErrors(errors);
+    return isValid;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:3000/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(contactFormData),
-      });
-
-      if (response.ok) {
-        console.log("Email sent successfully");
-        // Clear form fields
-        setContactFormData({
-          name: "",
-          email: "",
-          message: "",
+    if (validateMessage()) {
+      try {
+        const response = await fetch("http://localhost:3000/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(contactFormData),
         });
-      } else {
-        console.error("Error sending email");
+
+        if (response.ok) {
+          console.log("Email sent successfully");
+          // Clear form fields
+          setContactFormData({
+            name: "",
+            email: "",
+            message: "",
+          });
+        } else {
+          console.error("Error sending email");
+        }
+      } catch (error) {
+        console.error("Error:", error);
       }
-    } catch (error) {
-      console.error("Error:", error);
     }
   };
   return (
@@ -53,7 +89,7 @@ const Contact = () => {
         <div className="contact-ways">
           <div className="contact-way message-form">
             <b>Send me a message:</b>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} noValidate>
               <div className="contact-input">
                 <label htmlFor="">
                   Name <small>*</small>
@@ -64,6 +100,7 @@ const Contact = () => {
                   value={contactFormData.name}
                   onChange={handleChange}
                 />
+                {errors.name && <small className="error">{errors.name}</small>}
               </div>
               <div className="contact-input">
                 <label htmlFor="email">
@@ -75,6 +112,9 @@ const Contact = () => {
                   value={contactFormData.email}
                   onChange={handleChange}
                 />
+                {errors.email && (
+                  <small className="error">{errors.email}</small>
+                )}
               </div>
               <div className="contact-input">
                 <label htmlFor="message">
@@ -87,6 +127,9 @@ const Contact = () => {
                   value={contactFormData.message}
                   onChange={handleChange}
                 ></textarea>
+                {errors.message && (
+                  <small className="error">{errors.message}</small>
+                )}
               </div>
               <button className="btn">Send</button>
             </form>

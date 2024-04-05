@@ -7,12 +7,13 @@ const PostInfo = ({ post }) => {
 
   return (
     <div className="post-info">
-      {" "}
       <small>
         {DateTime.fromISO(post.createdAt).toFormat("MMMM dd, yyyy")}
       </small>
       <b>
-        <Link to={"/blog/" + post.title_url}>{post.title}</Link>
+        <Link className="hover-opacity" to={"/blog/" + post.title_url}>
+          {post.title}
+        </Link>
       </b>
       <div dangerouslySetInnerHTML={{ __html: shortenedBody }}></div>
     </div>

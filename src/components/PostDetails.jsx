@@ -17,7 +17,7 @@ const PostDetails = ({ post }) => {
     const postTag = tags.find((tag) => tag._id === tagId);
     return (
       <li key={tagId}>
-        <button>
+        <button className="tag">
           <Link to={`/blog?tags=${tagIdsToTagNames[tagId]}`}>
             {postTag.name}
           </Link>

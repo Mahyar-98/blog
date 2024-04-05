@@ -9,13 +9,13 @@ const Project = ({ project }) => {
           <p>{project.description}</p>
         </div>
         <div className="project__btns large-screen">
-          <button className="btn">
+          <button>
             <a href={project.url} target="_blank">
               Source
             </a>
           </button>
           {project.demo ? (
-            <button className="btn">
+            <button>
               <a href={project.demo} target="_blank">
                 Demo
               </a>
@@ -26,13 +26,13 @@ const Project = ({ project }) => {
 
       <img src={project.preview} alt="Project preview" />
       <div className="project__btns small-screen">
-        <button className="btn">
+        <button>
           <a href={project.url} target="_blank">
             Source
           </a>
         </button>
         {project.demo ? (
-          <button className="btn">
+          <button>
             <a href={project.demo} target="_blank">
               Demo
             </a>

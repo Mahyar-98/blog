@@ -16,7 +16,7 @@
   top: 0;
   bottom: 0;
   width: 2px; /* width of the line */
-  background-color: #ccc; /* Line color */
+  background-color: var(--left-border-color); /* Line color */
 }
 
 .comments ul {

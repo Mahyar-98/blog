@@ -1,5 +1,5 @@
 .home__hero {
-  background-color: var(--hero-bg-color);
+  background-color: var(--yellow-bg-color);
   min-height: 100%;
   overflow: hidden;
 }
@@ -23,24 +23,27 @@
   font-size: 2.8rem;
 }
 
-.intro p {
+.intro b {
   font-size: 0.9rem;
+  font-weight: 600;
   margin: 0;
 }
 
 .intro button {
   background-color: transparent;
-  border: var(--main-font-color) 1px solid;
+  border: var(--font-color) 1px solid;
+  transition: 0.2s;
 }
 
 .intro button:hover {
-  background-color: var(--main-font-color);
-  color: white;
+  background-color: var(--bg-color);
+  color: var(--font-color);
   font-weight: bold;
 }
 
 .intro a {
   color: inherit;
+  font-weight: bold;
 }
 
 .hero-img-small {
@@ -57,16 +60,16 @@
 }
 
 #home__about-variant .title {
-  background-color: white;
+  background-color: transparent;
   padding-bottom: 0;
 }
 
 #home__about-variant h2 {
-  color: var(--secondary-font-color);
+  color: var(--yellow-font-color);
 }
 
 .home__projects {
-  background-color: var(--hero-bg-color);
+  background-color: var(--yellow-bg-color);
 }
 
 .home__projects .container {
@@ -80,6 +83,14 @@
   margin-top: 3em;
 }
 
+#home__projects-variant img {
+  border: 2px solid var(--dark-bg-color);
+}
+
+#home__projects-variant button {
+  border: none;
+}
+
 .home__blog {
   margin-top: 3em;
 }
@@ -91,7 +102,7 @@
 }
 
 .home__blog h2 {
-  color: var(--secondary-font-color);
+  color: var(--yellow-font-color);
 }
 
 .home__blog .underlined {

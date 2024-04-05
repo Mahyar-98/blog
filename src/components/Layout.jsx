@@ -37,12 +37,14 @@ const Layout = () => {
     }
   }, [postsLoaded, tagsLoaded]);
 
+  const colorScheme = dayTheme ? "" : " dark";
+
   return (
-    <div className="layout">
+    <div className={"layout" + colorScheme}>
       <header>
         <div className="container">
           <Link to="/">
-            <h1>M. E.</h1>
+            <h1>Mahyar Erfanian</h1>
           </Link>
           <button
             id="nav-toggle"

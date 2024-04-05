@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 1em;
   margin: 2em 0;
-  border-left: 2px solid #ccc;
+  border-left: var(--left-border);
   padding-left: 1em;
 }
 
@@ -22,13 +22,10 @@
   flex-wrap: wrap;
 }
 
-.post-tags button {
-  font-size: 0.75em;
-  padding: 0.3em 0.5em;
-  margin-left: 0.8em;
-  border: var(--main-font-color) 1px solid;
-  transition: transform 0.3s;
-}
 .post-tags button:hover {
   transform: scale(1.1);
+}
+
+.post-tags button a {
+  padding: 0.3em 0.5em;
 }

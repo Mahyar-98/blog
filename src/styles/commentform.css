@@ -30,7 +30,6 @@
 
 .comment-form button {
   display: block;
-  border: 1px solid var(--main-font-color);
   flex: 1;
 }
 

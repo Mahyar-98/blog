@@ -10,10 +10,6 @@
   margin-bottom: 1em;
 }
 
-.contact-way form button {
-  border: var(--main-font-color) 1px solid;
-}
-
 .contact .icon-text {
   display: flex;
   gap: 1em;
