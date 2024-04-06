@@ -2,12 +2,15 @@
   margin-top: 2em;
 }
 
-.comment {
-  margin-bottom: 1em;
+.nested-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .nested-comment {
   position: relative;
+  margin-top: 1em;
 }
 
 .comment-line {

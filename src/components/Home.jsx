@@ -51,7 +51,7 @@ const Home = () => {
       </section>
       <section className="home__blog">
         <div className="container container-small">
-          <h2>Blog posts</h2>
+          <h2>BLOG</h2>
           {blogPosts}
           <Link to="blog" className="underlined">
             View more

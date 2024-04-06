@@ -11,7 +11,7 @@ const Comment = ({ postTitle, comment }) => {
       <div className="comment-content">
         <strong>
           {comment.website ? (
-            <a href={comment.website}>{comment.name}</a>
+            <a className="hover-opacity" href={comment.website} target="__blank">{comment.name}</a>
           ) : (
             comment.name
           )}
