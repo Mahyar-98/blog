@@ -14,7 +14,7 @@ const Layout = () => {
   const [dayTheme, setDayTheme] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/posts/")
+    fetch("https://blogapi-production-b816.up.railway.app/posts/")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
@@ -22,7 +22,7 @@ const Layout = () => {
       })
       .catch((err) => console.error(err));
 
-    fetch("http://localhost:3000/tags/")
+    fetch("https://blogapi-production-b816.up.railway.app/tags/")
       .then((res) => res.json())
       .then((data) => {
         setTags(data);

@@ -15,7 +15,7 @@ const Post = () => {
 
   // Fetch all the comments for the post being rendered
   useEffect(() => {
-    fetch("http://localhost:3000/posts/" + params.postTitle + "/comments")
+    fetch("https://blogapi-production-b816.up.railway.app/posts/" + params.postTitle + "/comments")
       .then((res) => res.json())
       .then((data) => (Array.isArray(data) ? setComments(data) : null))
       .catch((err) => console.error(err));
