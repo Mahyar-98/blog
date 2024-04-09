@@ -82,7 +82,11 @@ const CommentForm = ({ postTitle, commentId = "", setIsReplying = null }) => {
       const sanitizedFormData = { ...commentFormData };
       sanitizedFormData.website = sanitizeUrl(commentFormData.website);
       fetch(
-        "http://localhost:3000/posts/" + postTitle + "/comments/" + commentId,
+        import.meta.env.VITE_BACKEND_URL +
+          "/posts/" +
+          postTitle +
+          "/comments/" +
+          commentId,
         {
           method: "POST",
           headers: {

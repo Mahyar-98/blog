@@ -53,13 +53,16 @@ const Contact = () => {
     e.preventDefault();
     if (validateMessage()) {
       try {
-        const response = await fetch("http://localhost:3000/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+        const response = await fetch(
+          import.meta.env.VITE_BACKEND_URL + "/contact",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(contactFormData),
           },
-          body: JSON.stringify(contactFormData),
-        });
+        );
 
         if (response.ok) {
           console.log("Email sent successfully");

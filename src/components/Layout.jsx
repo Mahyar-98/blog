@@ -1,6 +1,8 @@
 import "../styles/layout.css";
 import { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
+import "../styles/prism-light.scss";
+import "../styles/prism-dark.scss";
 
 const Layout = () => {
   const [posts, setPosts] = useState([]);
@@ -14,7 +16,7 @@ const Layout = () => {
   const [dayTheme, setDayTheme] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/posts/")
+    fetch(import.meta.env.VITE_BACKEND_URL + "/posts/")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
@@ -22,7 +24,7 @@ const Layout = () => {
       })
       .catch((err) => console.error(err));
 
-    fetch("http://localhost:3000/tags/")
+    fetch(import.meta.env.VITE_BACKEND_URL + "/tags/")
       .then((res) => res.json())
       .then((data) => {
         setTags(data);

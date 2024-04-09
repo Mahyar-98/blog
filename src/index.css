@@ -1,5 +1,5 @@
 /* import Roboto Mono font */
-@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Farsan&family=Kdam+Thmor+Pro&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Farsan&family=Kdam+Thmor+Pro&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -13,6 +13,7 @@
   --light-hover-color: rgba(0, 0, 0, 0.05);
   --light-yellow-font-color: #a9792b;
   --light-yellow-bg-color: #ffcc66;
+  --light-post-link-color: #4e6bff;
 
   --dark-font-color: #ffffff;
   --dark-bg-color: #111827;
@@ -21,6 +22,7 @@
   --dark-hover-color: rgba(0, 0, 0, 0.4);
   --dark-yellow-font-color: var(--light-yellow-bg-color);
   --dark-yellow-bg-color: var(--light-yellow-font-color);
+  --dark-post-link-color: #72aaff;
 
   --shadow-color: rgba(0, 0, 0, 0.1);
 
@@ -60,6 +62,7 @@ div.layout {
   --hover-color: var(--light-hover-color);
   --yellow-font-color: var(--light-yellow-font-color);
   --yellow-bg-color: var(--light-yellow-bg-color);
+  --post-link-color: var(--light-post-link-color);
 
   color: var(--font-color);
   background-color: var(--bg-color);
@@ -72,6 +75,7 @@ div.layout.dark {
   --hover-color: var(--dark-hover-color);
   --yellow-font-color: var(--dark-yellow-font-color);
   --yellow-bg-color: var(--dark-yellow-bg-color);
+  --post-link-color: var(--dark-post-link-color);
 }
 
 h1 {
@@ -134,11 +138,16 @@ a {
   color: inherit;
 }
 
-a.underlined {
+a.underlined,
+.post-body a {
   text-decoration: underline;
 }
+.post-body a {
+  color: var(--post-link-color);
+}
 a.underlined:hover,
-a.hover-opacity:hover {
+a.hover-opacity:hover,
+.post-body a:hover {
   opacity: 0.8;
 }
 
