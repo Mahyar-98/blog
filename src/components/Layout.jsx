@@ -1,6 +1,8 @@
 import "../styles/layout.css";
 import { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
+import "../styles/prism-light.scss";
+import "../styles/prism-dark.scss";
 
 const Layout = () => {
   const [posts, setPosts] = useState([]);
@@ -12,13 +14,6 @@ const Layout = () => {
 
   const [navOpen, setNavOpen] = useState(false);
   const [dayTheme, setDayTheme] = useState(true);
-
-  useEffect(() => {
-    const prismTheme = dayTheme ? "light" : "dark";
-    const syntaxHighlighter = "/src/styles/prism-" + prismTheme + ".css";
-    const prismCssLink = document.getElementById("prism-theme");
-    prismCssLink.href = syntaxHighlighter;
-  }, [dayTheme])
 
   useEffect(() => {
     fetch(import.meta.env.VITE_BACKEND_URL + "/posts/")

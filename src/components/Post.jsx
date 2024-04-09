@@ -105,7 +105,10 @@ const Post = () => {
       {post && (
         <div>
           <h2>{post.title}</h2>
-          <div className="post-body" dangerouslySetInnerHTML={{ __html: post.body }}></div>
+          <div
+            className="post-body"
+            dangerouslySetInnerHTML={{ __html: post.body }}
+          ></div>
           <PostDetails post={post} />
           <CommentForm postTitle={params.postTitle} />
           <h3 className="comments-heading">Comments</h3>

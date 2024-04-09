@@ -138,7 +138,8 @@ a {
   color: inherit;
 }
 
-a.underlined, .post-body a {
+a.underlined,
+.post-body a {
   text-decoration: underline;
 }
 .post-body a {
