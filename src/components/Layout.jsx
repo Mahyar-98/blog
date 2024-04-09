@@ -14,7 +14,14 @@ const Layout = () => {
   const [dayTheme, setDayTheme] = useState(true);
 
   useEffect(() => {
-    fetch("https://blogapi-production-b816.up.railway.app/posts/")
+    const prismTheme = dayTheme ? "light" : "dark";
+    const syntaxHighlighter = "/src/styles/prism-" + prismTheme + ".css";
+    const prismCssLink = document.getElementById("prism-theme");
+    prismCssLink.href = syntaxHighlighter;
+  }, [dayTheme])
+
+  useEffect(() => {
+    fetch(import.meta.env.VITE_BACKEND_URL + "/posts/")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
@@ -22,7 +29,7 @@ const Layout = () => {
       })
       .catch((err) => console.error(err));
 
-    fetch("https://blogapi-production-b816.up.railway.app/tags/")
+    fetch(import.meta.env.VITE_BACKEND_URL + "/tags/")
       .then((res) => res.json())
       .then((data) => {
         setTags(data);

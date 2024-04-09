@@ -4,6 +4,7 @@ import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 import { useEffect, useState } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
+import Prism from "prismjs";
 
 const Post = () => {
   const params = useParams();
@@ -13,9 +14,19 @@ const Post = () => {
   // Find the post among all the posts that matches the slug
   const post = posts.find((post) => post.title_url === params.postTitle);
 
+  useEffect(() => {
+    // Call Prism.highlightAll() to apply syntax highlighting
+    Prism.highlightAll();
+  }, []);
+
   // Fetch all the comments for the post being rendered
   useEffect(() => {
-    fetch("https://blogapi-production-b816.up.railway.app/posts/" + params.postTitle + "/comments")
+    fetch(
+      import.meta.env.VITE_BACKEND_URL +
+        "/posts/" +
+        params.postTitle +
+        "/comments",
+    )
       .then((res) => res.json())
       .then((data) => (Array.isArray(data) ? setComments(data) : null))
       .catch((err) => console.error(err));
@@ -94,7 +105,7 @@ const Post = () => {
       {post && (
         <div>
           <h2>{post.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
+          <div className="post-body" dangerouslySetInnerHTML={{ __html: post.body }}></div>
           <PostDetails post={post} />
           <CommentForm postTitle={params.postTitle} />
           <h3 className="comments-heading">Comments</h3>
