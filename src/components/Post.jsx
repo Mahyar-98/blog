@@ -100,6 +100,11 @@ const Post = () => {
     renderCommentWithChildren(comment, new Set()),
   );
 
+  // Open all blog post links in a new page when clicked
+  document.querySelectorAll(".post-body a").forEach((link) => {
+    link.setAttribute("target", "_blank");
+  });
+
   return (
     <>
       {post && (
