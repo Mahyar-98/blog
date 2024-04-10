@@ -61,14 +61,14 @@
   padding: 3em 0;
 }
 
-#home__about-variant .title {
-  background-color: transparent;
-  padding-bottom: 0;
-  text-align: start;
+.home__about h2 {
+  color: var(--yellow-font-color);
 }
 
-#home__about-variant h2 {
-  color: var(--yellow-font-color);
+.home__about .container > a {
+  display: block;
+  text-align: center;
+  margin-top: 2em;
 }
 
 .home__projects {

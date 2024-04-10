@@ -17,14 +17,14 @@ const About = () => {
           truly thrive!
         </p>
         <p>
-          I completed my bachelor&apos;s in chemical engineering in 2020 and
-          master&apos;s in biomedical engineering in early 2023. I had all these
-          coding projects all over my university years but it was not long
-          before finishing my master&apos;s that I came into the realization
-          that coding has been my favorite part of engineering all along!
-          Learning and problem-solving is truly joyful to me and a career in
-          coding could promise me all that for every day of my life, so I jumped
-          right in with boundless motivation!
+          I completed my B.Sc. in chemical engineering in 2020 and M.Sc. in
+          biomedical engineering in early 2023. I had all these coding projects
+          all over my university years but it was not long before finishing my
+          master&apos;s that I came into the realization that coding has been my
+          favorite part of engineering all along! Learning and problem-solving
+          is truly joyful to me and a career in coding could promise me all that
+          for every day of my life, so I jumped right in with boundless
+          motivation!
         </p>
         <p>
           I began self-teaching web development in late 2022. It was
