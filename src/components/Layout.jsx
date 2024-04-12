@@ -44,7 +44,7 @@ const Layout = () => {
   return (
     <div className={"layout" + colorScheme}>
       <header>
-        <div className="">
+        <div>
           <Link to="/">
             <h1>Mahyar Erfanian</h1>
           </Link>
@@ -75,7 +75,6 @@ const Layout = () => {
                 <Link to="contact">Contact</Link>
               </li>
               <li>
-                {" "}
                 <span className="theme nav">
                   <Link
                     to="#"

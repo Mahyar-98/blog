@@ -2,7 +2,7 @@ const projectList = [
   {
     name: "Members Only",
     description:
-      "Built using express.js, this is a message board where authenticated users can share messages, while authorized admins have the added capabilities.",
+      "Express.js powers this message board. Unauthenticated users can read messages, authenticated users can post, and admins have additional privileges like editing and deleting messages.",
     url: "https://github.com/Mahyar-98/odin-membersOnly",
     demo: "https://elemental-heather-spy.glitch.me/",
     preview: "./project-membersOnly.png",
@@ -12,7 +12,7 @@ const projectList = [
   {
     name: "Shopping Cart",
     description:
-      "This is an online shop with cart functionality built using React Router, with product data fetched from the FakeStoreAPI.",
+      "Sample online shop created with React.js and React Router. With product data sourced from the FakeStoreAPI, users can browse, add, and remove items from their cart before heading to checkout.",
     url: "https://github.com/Mahyar-98/odin-shoppingCart",
     demo: "https://warm-tiramisu-08bdc8.netlify.app/",
     preview: "./project-shop.png",
@@ -22,7 +22,7 @@ const projectList = [
   {
     name: "Memory Card Game",
     description:
-      "A memory card game built with react.js and powered by PokéAPI! Match cards but avoid clicking the same one twice or lose.",
+      "Dive into the world of Pokémon with this memory card game, created using React.js and powered by the PokéAPI! Select your preferred difficulty level to challenge yourself with more cards. Test your memory as you select cards, but be careful not to choose the same card twice, or risk losing the game.",
     url: "https://github.com/Mahyar-98/odin-memoryCard",
     demo: "https://gorgeous-fudge-335303.netlify.app/",
     preview: "./project-cardGame.png",
@@ -32,7 +32,7 @@ const projectList = [
   {
     name: "CV Generator",
     description:
-      "Built using react.js, this app generates a structured CV based on the information provided through a form.",
+      "Created with React.js, this app simplifies the CV creation process by generating a structured resume based on user-provided information. Fill out the form, and watch as your details transform into an organized CV.",
     url: "https://github.com/Mahyar-98/odin-cvApplication",
     demo: "https://calm-figolla-1b6a62.netlify.app/",
     preview: "./project-cv.png",
