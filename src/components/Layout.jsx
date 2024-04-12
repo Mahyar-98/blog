@@ -8,36 +8,22 @@ const Layout = () => {
   const [posts, setPosts] = useState([]);
   const [tags, setTags] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const [postsLoaded, setPostsLoaded] = useState(false);
-  const [tagsLoaded, setTagsLoaded] = useState(false);
-
   const [navOpen, setNavOpen] = useState(false);
   const [dayTheme, setDayTheme] = useState(true);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_BACKEND_URL + "/posts/")
-      .then((res) => res.json())
-      .then((data) => {
-        setPosts(data);
-        setPostsLoaded(true);
-      })
-      .catch((err) => console.error(err));
-
+    Promise.all([
+      fetch(import.meta.env.VITE_BACKEND_URL + "/posts/")
+      .then((res) => res.json()),
     fetch(import.meta.env.VITE_BACKEND_URL + "/tags/")
       .then((res) => res.json())
-      .then((data) => {
-        setTags(data);
-        setTagsLoaded(true);
-      })
+    ]).then(([postsData, tagsData]) => {
+      setPosts(postsData);
+      setTags(tagsData);
+      setLoading(false);
+    })
       .catch((err) => console.error(err));
   }, []);
-
-  useEffect(() => {
-    if (postsLoaded && tagsLoaded) {
-      setLoading(false);
-    }
-  }, [postsLoaded, tagsLoaded]);
 
   const colorScheme = dayTheme ? "" : " dark";
 
