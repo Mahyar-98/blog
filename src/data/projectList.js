@@ -1,5 +1,15 @@
 const projectList = [
   {
+    name: "LyricsLexis",
+    description:
+      "Crafted with Express.js and React + TypeScript, my educational app aids English-learning music enthusiasts in deciphering song lyrics. Simply click on any unfamiliar word to instantly access its definition, save words or entire songs for future study sessions and jot down personal notes along the way!",
+    url: "https://github.com/Mahyar-98/lyricsLexis-react",
+    demo: "https://sweet-sunflower-59001b.netlify.app/",
+    preview: "./project-lyricsLexis.png",
+    year: 2024,
+    showInHomepage: true,
+  },
+  {
     name: "Members Only",
     description:
       "Express.js powers this message board. Unauthenticated users can read messages, authenticated users can post, and admins have additional privileges like editing and deleting messages.",

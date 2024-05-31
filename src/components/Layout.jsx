@@ -13,15 +13,18 @@ const Layout = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch(import.meta.env.VITE_BACKEND_URL + "/posts/")
-      .then((res) => res.json()),
-    fetch(import.meta.env.VITE_BACKEND_URL + "/tags/")
-      .then((res) => res.json())
-    ]).then(([postsData, tagsData]) => {
-      setPosts(postsData);
-      setTags(tagsData);
-      setLoading(false);
-    })
+      fetch(import.meta.env.VITE_BACKEND_URL + "/posts/").then((res) =>
+        res.json(),
+      ),
+      fetch(import.meta.env.VITE_BACKEND_URL + "/tags/").then((res) =>
+        res.json(),
+      ),
+    ])
+      .then(([postsData, tagsData]) => {
+        setPosts(postsData);
+        setTags(tagsData);
+        setLoading(false);
+      })
       .catch((err) => console.error(err));
   }, []);
 
